@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Telecomando Sky Q</string>
+    <string name="action_settings">Impostazioni</string>
+    <string name="hello_first_fragment">Indirizzo IP:</string>
+    <string name="settings_header">Impostazioni Sky Q</string>
+    <string name="settings_ip">Indirizzo IP</string>
+    <string name="title_activity_help">Aiuto</string>
+    <string name="btn_discover">Avvia ricerca automatica</string>
+    <string name="devices_found">Dispositivi trovati</string>
+    <string name="help_text_content1">Questa app trasforma il tuo smartphone in un telecomando per Sky Q (e Sky Q mini).</string>
+    <string name="help_text_content2">Per far si che questa app funzioni è necessario che lo smartphone e Sky Q siano connessi alla stessa rete.</string>
+    <string name="help_text_content3">Una volta che sono nella stessa rete puoi andare poi in <b>Impostaioni</b> ed inserire l\'indirizzo IP del tuo Sky Q. Tale indirizzo IP può essere trovato sullo Sky Q in <b>Impostazioni > Configura > Rete > Impostazioni Avanzate > Configurazione rete. </b></string>
+    <string name="help_text_content4">Oppure puoi tentare una scansione automatica tramite l\'app su <b>Impostazioni > Ricerca automatica</b> e selezionare uno tra i dispositivi trovati.</string>
+    <string name="auto_discover">Ricerca automatica</string>
+    <string name="auto_discover_summary">Fai tap qui per tentare una scansione automatica</string>
+    <string name="discover_text">Risultati della ricerca</string>
+    <string name="discovery_screenshot">Screenshot che mostra il risultato della ricerca</string>
+    <string name="skyq_screenshot">Screenshot che mostra le impostazioni del Sky Q</string>
+    <string name="screenshot_of_the_settings">Screenshot delle impostazioni</string>
+    <string name="discover_toast">Trovati %1$d dispositivi!</string>
+    <string name="second_fragment_label">Secondo Fragment</string>
+    <string name="hello_second_fragment">Ciao secondo fragment</string>
+    <string name="title_activity_settings">Activity Settings</string>
+    <string name="help_toast">Bisogno di aiuto?</string>
+    <string name="help_toast_action">Vai alla pagina di aiuto</string>
+</resources>

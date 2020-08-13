@@ -1,0 +1,24 @@
+<PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="#000000"
+    android:theme="@style/PreferenceScreen">
+
+    <PreferenceCategory app:title="@string/settings_header">
+
+        <EditTextPreference
+            android:id="@+id/ip_address"
+            android:theme="@style/AppTheme"
+            app:defaultValue="192.168.1.10"
+            app:key="ip"
+            app:title="@string/settings_ip"
+            app:useSimpleSummaryProvider="true" />
+
+        <Preference
+            android:id="@+id/auto_discover"
+            android:key="discover"
+            android:summary="@string/auto_discover_summary"
+            android:title="@string/auto_discover" />
+
+    </PreferenceCategory>
+
+</PreferenceScreen>

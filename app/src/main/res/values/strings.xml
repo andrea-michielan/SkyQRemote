@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">Sky Q Remote</string>
+    <string name="action_settings">Settings</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="second_fragment_label">Second Fragment</string>
+
+    <string name="hello_first_fragment">IP Address:</string>
+    <string name="hello_second_fragment">Hello second fragment</string>
+    <string name="title_activity_settings">SettingsActivity</string>
+
+    <!-- Preference Titles -->
+    <string name="settings_header">SkyQ Settings</string>
+    <string name="auto_discover">Auto discover devices</string>
+    <string name="auto_discover_summary">Click here to attempt an automatic discovery</string>
+
+    <!-- Messages Preferences -->
+    <string name="settings_ip">IP Address</string>
+
+    <string name="title_activity_help">Help</string>
+
+    <string name="discover_text">Discovery result</string>
+    <string name="btn_discover">Run Auto discovery</string>
+    <string name="devices_found">Devices Found</string>
+    <string name="help_text_content1">"This app turns your smartphone into a Sky Q (and Sky Q mini) remote. "</string>
+    <string name="help_text_content2">"For this app to work your smartphone and your Sky Q box(es) need to be connected to the same network. "</string>
+    <string name="help_text_content3">"You can then go into <b>Settings</b> and enter your Sky Q <b>IP Address</b> that can be found on your Sky Q from <b>Settings > Status > Network Connection > Network Setup > Advanced Settings. </b>  "</string>
+    <string name="help_text_content4">"Or you can attempt an auto discovery from <b>Settings > Auto discover devices > Run auto discovery</b> and select one (if any) of the found devices. "</string>
+    <string name="discovery_screenshot">Screenshot showing result of discovery</string>
+    <string name="skyq_screenshot">Screenshot showing settings from Sky Q</string>
+    <string name="screenshot_of_the_settings">Screenshot of the settings</string>
+
+    <string name="discover_toast">Found %1$d devices!</string>
+
+    <string name="help_toast">Need help?</string>
+    <string name="help_toast_action">See help page</string>
+</resources>
