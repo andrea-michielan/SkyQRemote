@@ -47,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
                         .setAction(getString(R.string.help_toast_action), new HelpListener()).show();
             }
         });
+
     }
 
     @Override

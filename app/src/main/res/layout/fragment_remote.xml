@@ -7,392 +7,401 @@
     android:background="#121212"
     tools:context=".RemoteFragment">
 
-    <ScrollView
+    <com.michielan.skyqremote.SyncedScrollView
+        android:id="@+id/scroll_view_1"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TableLayout
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:gravity="center">
+            android:orientation="vertical">
 
-            <TableRow
+            <ImageView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+                android:layout_height="wrap_content"
+                android:src="@mipmap/skyqremote3" />
 
-                <Button
-                    android:id="@+id/btn_sky"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="Sky"
-                    android:textColor="#FFFFFF" />
+        </LinearLayout>
+    </com.michielan.skyqremote.SyncedScrollView>
 
-                <ImageButton
-                    android:id="@+id/btn_power"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_power_settings_new_white_24dp" />
+    <com.michielan.skyqremote.SyncedScrollView
+        android:id="@+id/scroll_view_2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
-                <ImageButton
-                    android:id="@+id/btn_search"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_search_white_24dp" />
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-            </TableRow>
+            <Button
+                android:id="@+id/btn_sky"
+                android:layout_width="85dp"
+                android:layout_height="50dp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="70dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <Button
+                android:id="@+id/button1"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginEnd="20dp"
+                android:layout_marginTop="62dp"
+                android:layout_toStartOf="@+id/btn_record"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_rewind"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_fast_rewind_white_24dp" />
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/btn_record"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="62dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_play"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_play_arrow_white_24dp" />
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="62dp"
+                android:layout_toEndOf="@+id/btn_record"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_fastforward"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_fast_forward_white_24dp" />
-            </TableRow>
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button1"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button2"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_up"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_keyboard_arrow_up_white_24dp" />
-            </TableRow>
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button3"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="130dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button4"
+                android:layout_below="@+id/button4"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_left"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_keyboard_arrow_left_white_24dp" />
+            <Button
+                android:id="@+id/button8"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button5"
+                android:layout_below="@+id/button5"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_select"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_fiber_manual_record_white_18dp" />
+            <Button
+                android:id="@+id/button9"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button6"
+                android:layout_below="@+id/button6"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="0dp"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-                <ImageButton
-                    android:id="@+id/btn_right"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_keyboard_arrow_right_white_24dp" />
-            </TableRow>
+            <Button
+                android:id="@+id/button0"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_record"
+                android:layout_marginStart="-100dp"
+                android:layout_marginTop="275dp"
+                android:layout_toEndOf="@+id/btn_record"
+                android:background="@drawable/roundedbutton"
+                android:textColor="#FFFFFF" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <Button
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:layout_alignEnd="@+id/button0"
+                android:layout_below="@+id/button8"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="90dp"
+                android:visibility="invisible" />
 
-                <ImageButton
-                    android:id="@+id/btn_down"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_keyboard_arrow_down_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_search"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_sky"
+                android:layout_marginStart="5dp"
+                android:layout_marginTop="-7dp"
+                android:layout_toEndOf="@+id/btn_sky"
+                android:background="@drawable/roundedbutton" />
 
-            </TableRow>
+            <ImageButton
+                android:id="@+id/btn_power"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_sky"
+                android:layout_marginEnd="5dp"
+                android:layout_marginTop="-7dp"
+                android:layout_toStartOf="@+id/btn_sky"
+                android:background="@drawable/roundedbutton" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <ImageButton
+                android:id="@+id/btn_rewind"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/btn_power"
+                android:layout_marginEnd="-45dp"
+                android:layout_marginTop="30dp"
+                android:layout_toStartOf="@+id/btn_power"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_channelup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_arrow_drop_up_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_play"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/btn_sky"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="55dp"
+                android:layout_toEndOf="@+id/btn_power"
+                android:layout_toStartOf="@+id/btn_search"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_channeldown"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_arrow_drop_down_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_fastforward"
+                android:layout_width="75dp"
+                android:layout_height="75dp"
+                android:layout_below="@+id/btn_search"
+                android:layout_marginStart="-45dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/btn_search"
+                android:background="@drawable/roundedbutton" />
 
-            </TableRow>
+            <ImageButton
+                android:id="@+id/btn_up"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_play"
+                android:layout_marginEnd="50dp"
+                android:layout_marginStart="50dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/btn_rewind"
+                android:layout_toStartOf="@+id/btn_fastforward"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_keyboard_arrow_up_white_24dp" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <ImageButton
+                android:id="@+id/btn_left"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/btn_play"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="65dp"
+                android:layout_toEndOf="@+id/btn_rewind"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_keyboard_arrow_left_white_24dp" />
 
-                <ImageButton
-                    android:id="@+id/btn_info"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_info_outline_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_select"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:layout_below="@+id/btn_play"
+                android:layout_marginEnd="25dp"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="65dp"
+                android:layout_toEndOf="@+id/btn_left"
+                android:layout_toStartOf="@+id/btn_right"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_fiber_manual_record_white_18dp" />
 
-                <ImageButton
-                    android:id="@+id/btn_home"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_home_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_right"
+                android:layout_width="70dp"
+                android:layout_height="100dp"
+                android:layout_alignStart="@+id/btn_fastforward"
+                android:layout_below="@+id/btn_fastforward"
+                android:layout_marginStart="-25dp"
+                android:layout_marginTop="25dp"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_keyboard_arrow_right_white_24dp" />
 
-                <ImageButton
-                    android:id="@+id/btn_dismiss"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_exit_to_app_white_24dp" />
-            </TableRow>
+            <ImageButton
+                android:id="@+id/btn_down"
+                android:layout_width="130dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_up"
+                android:layout_marginStart="-17dp"
+                android:layout_marginTop="100dp"
+                android:layout_toEndOf="@+id/btn_left"
+                android:background="@drawable/roundedbutton"
+                android:src="@drawable/ic_keyboard_arrow_down_white_24dp" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <ImageButton
+                android:id="@+id/btn_dismiss"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_left"
+                android:layout_marginEnd="25dp"
+                android:layout_marginTop="30dp"
+                android:layout_toStartOf="@+id/btn_down"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_help"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_help_outline_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_interactive"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_right"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="40dp"
+                android:layout_toEndOf="@+id/btn_down"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_record"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/record_btn" />
+            <ImageButton
+                android:id="@+id/btn_home"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_down"
+                android:layout_marginEnd="0dp"
+                android:layout_marginStart="-15dp"
+                android:layout_marginTop="0dp"
+                android:layout_toEndOf="@+id/btn_dismiss"
+                android:layout_toStartOf="@+id/btn_interactive"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_interactive"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/ic_more_horiz_white_24dp" />
+            <ImageButton
+                android:id="@+id/btn_info"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_home"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="5dp"
+                android:layout_toStartOf="@+id/btn_channelup"
+                android:background="@drawable/roundedbutton" />
 
-            </TableRow>
+            <ImageButton
+                android:id="@+id/btn_channelup"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_interactive"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="30dp"
+                android:layout_toEndOf="@+id/btn_home"
+                android:background="@drawable/roundedbutton" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_margin="8dp"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <ImageButton
+                android:id="@+id/btn_channeldown"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignEnd="@+id/btn_channelup"
+                android:layout_below="@+id/btn_channelup"
+                android:layout_marginEnd="0dp"
+                android:layout_marginTop="20dp"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_red"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/button_red" />
+            <ImageButton
+                android:id="@+id/btn_record"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_info"
+                android:layout_marginEnd="30dp"
+                android:layout_marginTop="1dp"
+                android:layout_toStartOf="@+id/btn_channeldown"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_green"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/button_green" />
+            <ImageButton
+                android:id="@+id/btn_red"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_home"
+                android:layout_marginEnd="32dp"
+                android:layout_marginTop="140dp"
+                android:layout_toStartOf="@+id/btn_record"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_yellow"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:src="@drawable/button_yellow" />
+            <ImageButton
+                android:id="@+id/btn_green"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_home"
+                android:layout_marginEnd="4dp"
+                android:layout_marginStart="-33dp"
+                android:layout_marginTop="140dp"
+                android:layout_toEndOf="@+id/btn_red"
+                android:background="@drawable/roundedbutton" />
 
-                <ImageButton
-                    android:id="@+id/btn_blue"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:minWidth="90dp"
-                    android:src="@drawable/button_blue" />
+            <ImageButton
+                android:id="@+id/btn_yellow"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_home"
+                android:layout_marginStart="-10dp"
+                android:layout_marginTop="140dp"
+                android:layout_toEndOf="@+id/btn_green"
+                android:background="@drawable/roundedbutton" />
 
-            </TableRow>
+            <ImageButton
+                android:id="@+id/btn_blue"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_below="@+id/btn_home"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="140dp"
+                android:layout_toEndOf="@+id/btn_yellow"
+                android:background="@drawable/roundedbutton" />
 
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
+            <ImageButton
+                android:id="@+id/btn_help"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_alignStart="@+id/button9"
+                android:layout_below="@+id/button9"
+                android:layout_marginStart="-5dp"
+                android:layout_marginTop="5dp"
+                android:background="@drawable/roundedbutton" />
 
-                <Button
-                    android:id="@+id/button1"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="1"
-                    android:textColor="#FFFFFF" />
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
 
-                <Button
-                    android:id="@+id/button2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="2"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/button3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="3"
-                    android:textColor="#FFFFFF" />
-
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
-
-                <Button
-                    android:id="@+id/button4"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="4"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/button5"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="5"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/button6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="6"
-                    android:textColor="#FFFFFF" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
-
-                <Button
-                    android:id="@+id/button7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="7"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/button8"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="8"
-                    android:textColor="#FFFFFF" />
-
-                <Button
-                    android:id="@+id/button9"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="9"
-                    android:textColor="#FFFFFF" />
-            </TableRow>
-
-            <TableRow
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:gravity="center_horizontal"
-                android:minHeight="50dp">
-
-                <Button
-                    android:id="@+id/button0"
-                    android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_margin="4dp"
-                    android:background="@drawable/roundedbutton"
-                    android:text="0"
-                    android:textColor="#FFFFFF" />
-
-            </TableRow>
-        </TableLayout>
-    </ScrollView>
+        </RelativeLayout>
+    </com.michielan.skyqremote.SyncedScrollView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

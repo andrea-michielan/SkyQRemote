@@ -33,7 +33,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center"
         android:layout_marginBottom="@dimen/fab_margin"
-        android:background="@drawable/roundedbutton"
+        android:background="@drawable/roundedbuttonoutlined"
         android:padding="10dp"
         android:text="@string/btn_discover"
         android:textColor="#FFFFFF" />

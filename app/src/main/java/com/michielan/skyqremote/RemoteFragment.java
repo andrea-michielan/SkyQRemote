@@ -27,6 +27,16 @@ public class RemoteFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        // Setup the synced scrolling views
+        ScrollNotifier notifier;
+        ScrollManager scrollManager = new ScrollManager();
+
+        notifier = (ScrollNotifier) view.findViewById(R.id.scroll_view_1);
+        scrollManager.addScrollClient(notifier);
+
+        notifier = (ScrollNotifier) view.findViewById(R.id.scroll_view_2);
+        scrollManager.addScrollClient(notifier);
+
         // Get ip settings
         SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
         String ip = sharedPreferences.getString("ip", "");
