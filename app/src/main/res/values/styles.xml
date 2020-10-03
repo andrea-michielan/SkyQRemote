@@ -17,8 +17,16 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Dark" />
 
     <style name="PreferenceScreen" parent="ThemeOverlay.AppCompat.Dark">
-        <item name="android:textColor">#ffffff</item>
-        <item name="android:textColorPrimary">#ffffff</item>
+        <item name="android:textColor">@color/white</item>
+        <item name="android:textColorPrimary">@color/white</item>
+    </style>
+
+    <style name="AlertDialogDark" parent="Theme.AppCompat.DayNight.Dialog.Alert">
+        <item name="alertDialogTheme">@style/Theme.AppCompat.DayNight.Dialog.Alert</item>
+        <item name="android:alertDialogTheme">@style/Theme.AppCompat.DayNight.Dialog.Alert</item>
+        <item name="android:textColor">@color/colorAccent</item>
+        <item name="android:colorBackground">@color/colorPrimaryDark</item>
+        <item name="android:textColorPrimary">@color/white</item>
     </style>
 
 </resources>

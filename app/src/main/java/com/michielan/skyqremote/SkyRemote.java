@@ -1,16 +1,20 @@
 package com.michielan.skyqremote;
 
 import java.io.*;
+import java.net.InetSocketAddress;
 import java.net.Socket;
 import java.util.HashMap;
+
+import androidx.annotation.NonNull;
 
 public class SkyRemote {
 
     private static final int connectionTimeOut = 1000;
 
     // Port used by SkyQ
-    private static final int SKY_Q_LEGACY = 5900;
-    private static final int SKY_Q = 49160;
+    public static final int SKY_Q = 49160;
+    // if firmware < 060
+    public static final int SKY_Q_LEGACY = 5900;
 
     // HashMap containing all available commands
     public static final HashMap<String, Integer> commands = new HashMap<>();
@@ -66,7 +70,7 @@ public class SkyRemote {
     // Constructor with default port
     public SkyRemote(String ip) {
         host = ip;
-        port = 49160;
+        port = SKY_Q;
     }
 
     // Constructor with a specified port
@@ -75,16 +79,26 @@ public class SkyRemote {
         port = p;
     }
 
+    @NonNull
+    @Override
+    public String toString() {
+        return "SkyRemote{" +
+                "host='" + host + '\'' +
+                ", port=" + port +
+                '}';
+    }
+
     // Function that sends a command (identified by the code) to the sky q
     public void sendCommand(int code) throws IOException {
 
         int l = 12;
 
         // Array of bytes containing the required info to press a button
-        byte commandBytes[] = {4, 1, 0, 0, 0, 0, (byte) Math.floor(224 + (code / 16.0)), (byte) (code % 16)};
+        byte[] commandBytes = {4, 1, 0, 0, 0, 0, (byte) Math.floor(224 + (code / 16.0)), (byte) (code % 16)};
 
         // New socket
-        Socket socket = new Socket(host, port);
+        Socket socket = new Socket();
+        socket.connect(new InetSocketAddress(host, port), 1000);
 
         // Output and input stream
         OutputStream out = socket.getOutputStream();

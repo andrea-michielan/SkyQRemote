@@ -1,13 +1,17 @@
 package com.michielan.skyqremote;
 
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.preference.PreferenceManager;
 
 import android.view.View;
 
@@ -48,6 +52,34 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        // Check if the app has been launched for the first time or if the ip has not been set yet
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(this);
+        final String ip = sharedPreferences.getString("ip", "_");
+        // Check if the ip is in the correct form
+        assert ip != null;
+        if (!ip.matches("([0-9]{1,3})[.]{1}([0-9]{1,3})[.]{1}([0-9]{1,3})[.]{1}([0-9]{1,3})"))
+            // Show a dialog when the app is installed for the first time
+            showStartDialog();
+
+    }
+
+    private void showStartDialog() {
+        new AlertDialog.Builder(this, R.style.AlertDialogDark)
+                .setTitle(R.string.first_time_dialog_title)
+                .setMessage(R.string.first_time_dialog_message)
+                .setPositiveButton(R.string.first_time_dialog_positive, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialogInterface, int i) {
+                        Intent settingsIntent = new Intent(MainActivity.this, SettingsActivity.class);
+                        MainActivity.this.startActivity(settingsIntent);
+                    }
+                }).setNegativeButton(R.string.first_time_dialog_negative, new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialogInterface, int i) {
+                dialogInterface.dismiss();
+            }
+        })
+                .create().show();
     }
 
     @Override

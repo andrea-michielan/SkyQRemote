@@ -8,7 +8,6 @@
         <EditTextPreference
             android:id="@+id/ip_address"
             android:theme="@style/AppTheme"
-            app:defaultValue="192.168.1.10"
             app:key="ip"
             app:title="@string/settings_ip"
             app:useSimpleSummaryProvider="true" />
@@ -18,6 +17,12 @@
             android:key="discover"
             android:summary="@string/auto_discover_summary"
             android:title="@string/auto_discover" />
+        <SwitchPreference
+            android:id="@+id/sky_q_legacy"
+            android:defaultValue="false"
+            android:key="port"
+            android:summary="@string/sky_q_legacy_summary"
+            android:title="@string/sky_q_legacy" />
 
     </PreferenceCategory>
 

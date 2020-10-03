@@ -39,7 +39,7 @@ public class SettingsActivity extends AppCompatActivity {
                 .replace(R.id.settings, new SettingsFragment())
                 .commit();
         setTheme(R.style.PreferenceScreen);
-        setTitle("Settings");
+        setTitle(R.string.settings_title);
         ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);

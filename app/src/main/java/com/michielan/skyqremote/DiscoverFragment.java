@@ -61,6 +61,11 @@ public class DiscoverFragment extends Fragment {
         // List view containing the result of the scan
         final ListView lv = view.findViewById(R.id.ip_list_view);
 
+        // Check if the user ticked the option for Legacy Sky Q (port 5900 instead of 41960)
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final int port = sharedPreferences.getBoolean("port", false) ? SkyRemote.SKY_Q_LEGACY : SkyRemote.SKY_Q;
+        Log.d(MainActivity.TAG, "Porta: " + port);
+
         // Button that starts the discovery process
         final Button btn = view.findViewById(R.id.btn_discover);
         btn.setOnClickListener(new View.OnClickListener() {
@@ -80,9 +85,8 @@ public class DiscoverFragment extends Fragment {
                         sc.newScan();
 
                         // IP of the device in which the code is running/localhost
-                        String myip = null;
-                        myip = getIPAddress(true);
-                        Log.d(MainActivity.TAG, myip);
+                        String myip = getIPAddress(true);
+                        // Log.d(MainActivity.TAG, myip);
 
                         // Check if the ip is localhost
                         if (myip.equals("127.0.0.1")) {
@@ -122,11 +126,11 @@ public class DiscoverFragment extends Fragment {
                                     final String host = addr.getHostAddress();
 
                                     // Synchronously (it takes too long)
-                                    // ArrayList<Integer> openPorts = PortScan.onAddress(host).setMethodTCP().setPort(49160).doScan();
+                                    // ArrayList<Integer> openPorts = PortScan.onAddress(host).setMethodTCP().setPort(port).doScan();
                                     // Log.d(MainActivity.TAG, openPorts.toString());
 
                                     // Asynchronously (really fast)
-                                    PortScan.onAddress(host).setTimeOutMillis(1000).setPort(49160).setMethodTCP().doScan(new PortScan.PortListener() {
+                                    PortScan.onAddress(host).setTimeOutMillis(1000).setPort(port).setMethodTCP().doScan(new PortScan.PortListener() {
                                         @Override
                                         public void onResult(int portNo, boolean open) {
                                             if (open) {
@@ -139,6 +143,15 @@ public class DiscoverFragment extends Fragment {
                                             }
                                             //Log.d(MainActivity.TAG, "Counter: " + sc.getCounter());
                                             if (sc.hasFinished()) {
+
+                                                // Sometimes can happen that the thread has finished scanning, but the user has clicked the back
+                                                // button, resulting in a NullPointerException that crashes the app
+                                                // If getActivity() returns null that means that the user has clicked the back button
+                                                if (getActivity() == null) {
+                                                    Log.e(MainActivity.TAG, "getActivity() NullPointerException");
+                                                    return;
+                                                }
+
                                                 //Log.d(MainActivity.TAG, "Finished scanning");
                                                 getActivity().runOnUiThread(new Runnable() {
                                                     @Override

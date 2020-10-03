@@ -1,5 +1,7 @@
 package com.michielan.skyqremote;
 
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -10,10 +12,13 @@ import android.view.ViewGroup;
 import java.io.IOException;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.preference.PreferenceManager;
 
 public class RemoteFragment extends Fragment {
+
+    private SkyRemote remote;
 
     @Override
     public View onCreateView(
@@ -24,6 +29,21 @@ public class RemoteFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_remote, container, false);
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+
+        // Get ip settings
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        final String ip = sharedPreferences.getString("ip", "_");
+
+        // Get port settings
+        final int port = sharedPreferences.getBoolean("port", false) ? SkyRemote.SKY_Q_LEGACY : SkyRemote.SKY_Q;
+
+        // Create a new remote
+        remote = new SkyRemote(ip, port);
+    }
+
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
@@ -31,16 +51,21 @@ public class RemoteFragment extends Fragment {
         ScrollNotifier notifier;
         ScrollManager scrollManager = new ScrollManager();
 
-        notifier = (ScrollNotifier) view.findViewById(R.id.scroll_view_1);
+        notifier = view.findViewById(R.id.scroll_view_1);
         scrollManager.addScrollClient(notifier);
 
-        notifier = (ScrollNotifier) view.findViewById(R.id.scroll_view_2);
+        notifier = view.findViewById(R.id.scroll_view_2);
         scrollManager.addScrollClient(notifier);
 
         // Get ip settings
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
-        String ip = sharedPreferences.getString("ip", "");
-        final SkyRemote remote = new SkyRemote(ip);
+        //SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        //final String ip = sharedPreferences.getString("ip", "127.0.0.1");
+
+        // Get port settings
+        //final int port = sharedPreferences.getBoolean("port", false) ? SkyRemote.SKY_Q_LEGACY : SkyRemote.SKY_Q;
+
+        // Create a new remote
+        //remote = new SkyRemote(ip, port);
 
         view.findViewById(R.id.btn_power).setOnClickListener(new View.OnClickListener() {
             @Override
@@ -350,7 +375,11 @@ public class RemoteFragment extends Fragment {
 
     }
 
-    static class SkyThread implements Runnable {
+    private void showAlertDialog() {
+
+    }
+
+    class SkyThread implements Runnable {
 
         private SkyRemote remote;
         private int command;
@@ -364,8 +393,55 @@ public class RemoteFragment extends Fragment {
         public void run() {
             try {
                 remote.sendCommand(command);
+                Log.e(MainActivity.TAG, remote.toString());
             } catch (IOException e) {
-                Log.d(MainActivity.TAG, e.toString());
+                // If an exception is caught, then there's some misconfiguration (wrong port/ip) or the Smartphone and the Sky Q are not on the same network
+                getActivity().runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        // Check if the app has been launched for the first time or if the ip has not been set yet
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        final String ip = sharedPreferences.getString("ip", "_");
+                        // Check if the ip is in the correct form
+                        assert ip != null;
+                        if (!ip.matches("([0-9]{1,3})[.]{1}([0-9]{1,3})[.]{1}([0-9]{1,3})[.]{1}([0-9]{1,3})")) {
+                            // Show a dialog when the app is installed for the first time
+                            new AlertDialog.Builder(getContext(), R.style.AlertDialogDark)
+                                    .setTitle(R.string.first_time_dialog_title)
+                                    .setMessage(R.string.first_time_dialog_message)
+                                    .setPositiveButton(R.string.first_time_dialog_positive, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
+                                            getActivity().startActivity(settingsIntent);
+                                        }
+                                    }).setNegativeButton(R.string.first_time_dialog_negative, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).create().show();
+                        } else {
+                            // Show a dialog
+                            new AlertDialog.Builder(getContext(), R.style.AlertDialogDark)
+                                    .setTitle(R.string.wrong_configuration_title)
+                                    .setMessage(R.string.wrong_configuration_message)
+                                    .setPositiveButton(R.string.first_time_dialog_positive, new DialogInterface.OnClickListener() {
+                                        @Override
+                                        public void onClick(DialogInterface dialogInterface, int i) {
+                                            Intent settingsIntent = new Intent(getActivity(), SettingsActivity.class);
+                                            getActivity().startActivity(settingsIntent);
+                                        }
+                                    }).setNegativeButton(R.string.first_time_dialog_negative, new DialogInterface.OnClickListener() {
+                                @Override
+                                public void onClick(DialogInterface dialogInterface, int i) {
+                                    dialogInterface.dismiss();
+                                }
+                            }).create().show();
+                        }
+                    }
+                });
+                Log.d(MainActivity.TAG, remote.toString() + e.toString());
             }
         }
     }

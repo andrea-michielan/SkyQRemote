@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#121212"
@@ -51,7 +50,7 @@
                 android:contentDescription="@string/skyq_screenshot"
                 android:padding="14dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/sky_ip_settings" />
+                app:srcCompat="@drawable/sky_ip_settings_lowres" />
 
             <TextView
                 android:id="@+id/help_text4"
@@ -70,7 +69,7 @@
                 android:contentDescription="@string/screenshot_of_the_settings"
                 android:padding="14dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/settings_discovery" />
+                app:srcCompat="@drawable/settings_discovery_lowres" />
 
             <ImageView
                 android:id="@+id/imageView"
@@ -80,7 +79,16 @@
                 android:contentDescription="@string/discovery_screenshot"
                 android:padding="14dp"
                 android:scaleType="fitXY"
-                app:srcCompat="@drawable/discovery" />
+                app:srcCompat="@drawable/discovery_lowres" />
+
+            <TextView
+                android:id="@+id/help_text5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autoLink="email"
+                android:padding="18dp"
+                android:textColor="#FFFFFF"
+                android:textSize="18sp" />
 
         </LinearLayout>
     </ScrollView>

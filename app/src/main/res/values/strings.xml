@@ -9,9 +9,12 @@
     <string name="title_activity_settings">SettingsActivity</string>
 
     <!-- Preference Titles -->
+    <string name="settings_title">Settings</string>
     <string name="settings_header">SkyQ Settings</string>
     <string name="auto_discover">Auto discover devices</string>
     <string name="auto_discover_summary">Click here to attempt an automatic discovery</string>
+    <string name="sky_q_legacy">Sky Q Legacy</string>
+    <string name="sky_q_legacy_summary">Enable this option if the app does not work with your Sky Q (its firmware version may be lower than 060)</string>
 
     <!-- Messages Preferences -->
     <string name="settings_ip">IP Address</string>
@@ -25,6 +28,7 @@
     <string name="help_text_content2">"For this app to work your smartphone and your Sky Q box(es) need to be connected to the same network. "</string>
     <string name="help_text_content3">"You can then go into <b>Settings</b> and enter your Sky Q <b>IP Address</b> that can be found on your Sky Q from <b>Settings > Status > Network Connection > Network Setup > Advanced Settings. </b>  "</string>
     <string name="help_text_content4">"Or you can attempt an auto discovery from <b>Settings > Auto discover devices > Run auto discovery</b> and select one (if any) of the found devices. "</string>
+    <string name="help_text_content5">If you followed all the above instructions and the app still does not work then you can try enabling the <a href="mailto:michielan8@gmail.com">michielan8@gmail.com</a> option in the settings and repeating the discovery process. If this still does not work then contact me at <b>Sky Q Legacy</b></string>
     <string name="discovery_screenshot">Screenshot showing result of discovery</string>
     <string name="skyq_screenshot">Screenshot showing settings from Sky Q</string>
     <string name="screenshot_of_the_settings">Screenshot of the settings</string>
@@ -33,4 +37,11 @@
 
     <string name="help_toast">Need help?</string>
     <string name="help_toast_action">See help page</string>
+    <string name="sky_q_remote_image">Sky Q remote image</string>
+    <string name="first_time_dialog_message">Hi, it seems that this is the first time that you\'ve launched the app, or you haven\'t set it up properly yet. In order to do so you need to go to the settings and enter the Sky Q IP address, manually or by starting an automatic discovery. You can click on the <b>Settings</b> button below if you want me to bring you to the settings page.</string>
+    <string name="first_time_dialog_title">First configuration</string>
+    <string name="first_time_dialog_positive">Settings</string>
+    <string name="first_time_dialog_negative">Cancel</string>
+    <string name="wrong_configuration_message">The app was not able to communicate with the Sky Q; it seems that the configuration is incorrect. Make sure that the IP address is correct, that your smartphone and your Sky Q are connected to the same network and that you have checked/unchecked the Sky Q Legacy option based on your Sky Q firmware version. Click the <b>Settings</b> button below if you want me to bring you to the settings page.</string>
+    <string name="wrong_configuration_title">Wrong configuration</string>
 </resources>
