@@ -396,6 +396,10 @@ public class RemoteFragment extends Fragment {
                 Log.e(MainActivity.TAG, remote.toString());
             } catch (IOException e) {
                 // If an exception is caught, then there's some misconfiguration (wrong port/ip) or the Smartphone and the Sky Q are not on the same network
+                if (getActivity() == null) {
+                    Log.e(MainActivity.TAG, "getActivity() NullPointerException");
+                    return;
+                }
                 getActivity().runOnUiThread(new Runnable() {
                     @Override
                     public void run() {
