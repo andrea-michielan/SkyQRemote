@@ -10,6 +10,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
@@ -34,14 +35,17 @@ public class RemoteFragment extends Fragment {
         super.onResume();
 
         // Get ip settings
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         final String ip = sharedPreferences.getString("ip", "_");
 
         // Get port settings
         final int port = sharedPreferences.getBoolean("port", false) ? SkyRemote.SKY_Q_LEGACY : SkyRemote.SKY_Q;
 
+        // Get timeout settings
+        final int timeout = sharedPreferences.getInt("timeout", 1000);
+
         // Create a new remote
-        remote = new SkyRemote(ip, port);
+        remote = new SkyRemote(ip, port, timeout);
     }
 
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
@@ -381,8 +385,8 @@ public class RemoteFragment extends Fragment {
 
     class SkyThread implements Runnable {
 
-        private SkyRemote remote;
-        private int command;
+        private final SkyRemote remote;
+        private final int command;
 
         public SkyThread(SkyRemote remote, int command) {
             this.remote = remote;
@@ -404,13 +408,13 @@ public class RemoteFragment extends Fragment {
                     @Override
                     public void run() {
                         // Check if the app has been launched for the first time or if the ip has not been set yet
-                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                         final String ip = sharedPreferences.getString("ip", "_");
                         // Check if the ip is in the correct form
                         assert ip != null;
                         if (!ip.matches("([0-9]{1,3})[.]{1}([0-9]{1,3})[.]{1}([0-9]{1,3})[.]{1}([0-9]{1,3})")) {
                             // Show a dialog when the app is installed for the first time
-                            new AlertDialog.Builder(getContext(), R.style.AlertDialogDark)
+                            new AlertDialog.Builder(requireContext(), R.style.AlertDialogDark)
                                     .setTitle(R.string.first_time_dialog_title)
                                     .setMessage(R.string.first_time_dialog_message)
                                     .setPositiveButton(R.string.first_time_dialog_positive, new DialogInterface.OnClickListener() {
@@ -427,7 +431,7 @@ public class RemoteFragment extends Fragment {
                             }).create().show();
                         } else {
                             // Show a dialog
-                            new AlertDialog.Builder(getContext(), R.style.AlertDialogDark)
+                            new AlertDialog.Builder(requireContext(), R.style.AlertDialogDark)
                                     .setTitle(R.string.wrong_configuration_title)
                                     .setMessage(R.string.wrong_configuration_message)
                                     .setPositiveButton(R.string.first_time_dialog_positive, new DialogInterface.OnClickListener() {

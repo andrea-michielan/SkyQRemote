@@ -9,7 +9,7 @@ import androidx.annotation.NonNull;
 
 public class SkyRemote {
 
-    private static final int connectionTimeOut = 1000;
+    private final int timeout;
 
     // Port used by SkyQ
     public static final int SKY_Q = 49160;
@@ -64,19 +64,28 @@ public class SkyRemote {
         commands.put("sky", 241);
     }
 
-    private String host;
-    private int port;
+    private final String host;
+    private final int port;
 
     // Constructor with default port
     public SkyRemote(String ip) {
         host = ip;
         port = SKY_Q;
+        timeout = 1000;
     }
 
     // Constructor with a specified port
     public SkyRemote(String ip, int p) {
         host = ip;
         port = p;
+        timeout = 1000;
+    }
+
+    // Constructor with a specified port and a timeout
+    public SkyRemote(String ip, int p, int connectionTimeout) {
+        host = ip;
+        port = p;
+        timeout = connectionTimeout;
     }
 
     @NonNull
@@ -85,6 +94,7 @@ public class SkyRemote {
         return "SkyRemote{" +
                 "host='" + host + '\'' +
                 ", port=" + port +
+                ", timeout=" + timeout +
                 '}';
     }
 
@@ -98,7 +108,7 @@ public class SkyRemote {
 
         // New socket
         Socket socket = new Socket();
-        socket.connect(new InetSocketAddress(host, port), 1000);
+        socket.connect(new InetSocketAddress(host, port), timeout);
 
         // Output and input stream
         OutputStream out = socket.getOutputStream();

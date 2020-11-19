@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     package="com.michielan.skyqremote">
+
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -28,6 +29,14 @@
                 android:value="com.michielan.skyqremote.MainActivity" />
         </activity>
         <activity
+            android:name="com.michielan.skyqremote.InfoActivity"
+            android:label="@string/title_activity_settings"
+            android:parentActivityName="com.michielan.skyqremote.MainActivity">
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.michielan.skyqremote.MainActivity" />
+        </activity>
+        <activity
             android:name="com.michielan.skyqremote.MainActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
@@ -39,7 +48,5 @@
             </intent-filter>
         </activity>
     </application>
-
-    <uses-permission android:name="android.permission.INTERNET" />
 
 </manifest>

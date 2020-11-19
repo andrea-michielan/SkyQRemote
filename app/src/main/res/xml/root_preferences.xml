@@ -23,6 +23,15 @@
             android:key="port"
             android:summary="@string/sky_q_legacy_summary"
             android:title="@string/sky_q_legacy" />
+        <SeekBarPreference
+            android:id="@+id/timeout"
+            android:key="timeout"
+            android:max="5000"
+            android:summary="@string/timeout_summary"
+            android:title="@string/timeout"
+            app:defaultValue="1000"
+            app:min="500"
+            app:showSeekBarValue="true" />
 
     </PreferenceCategory>
 

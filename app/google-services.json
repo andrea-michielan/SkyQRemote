@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "340741305219",
+    "firebase_url": "https://skyqremote-5c784.firebaseio.com",
+    "project_id": "skyqremote-5c784",
+    "storage_bucket": "skyqremote-5c784.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:340741305219:android:36a4257c3593830ef5bcb6",
+        "android_client_info": {
+          "package_name": "com.michielan.skyqremote"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "340741305219-fm1p3u184jg8a36a9d812nujeaem93fj.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAyv1sZQE3XDFJ7xwD19FY1eWnyT-9O7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "340741305219-fm1p3u184jg8a36a9d812nujeaem93fj.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

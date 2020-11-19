@@ -27,6 +27,7 @@ import java.io.IOException;
 import java.net.InetAddress;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import static com.michielan.skyqremote.NetworkUtils.getIPAddress;
 
@@ -62,9 +63,8 @@ public class DiscoverFragment extends Fragment {
         final ListView lv = view.findViewById(R.id.ip_list_view);
 
         // Check if the user ticked the option for Legacy Sky Q (port 5900 instead of 41960)
-        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+        SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
         final int port = sharedPreferences.getBoolean("port", false) ? SkyRemote.SKY_Q_LEGACY : SkyRemote.SKY_Q;
-        Log.d(MainActivity.TAG, "Porta: " + port);
 
         // Button that starts the discovery process
         final Button btn = view.findViewById(R.id.btn_discover);
@@ -159,14 +159,14 @@ public class DiscoverFragment extends Fragment {
                                                         // Makes the text view visible
                                                         tv.setVisibility(View.VISIBLE);
                                                         // Create a new adapter for the list view containing all the available ips
-                                                        ArrayAdapter<String> adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, devices);
+                                                        ArrayAdapter<String> adapter = new ArrayAdapter<>(requireContext(), android.R.layout.simple_list_item_1, devices);
                                                         // Set the adapter for the list view
                                                         lv.setAdapter(adapter);
                                                         // Hide the progress bar
                                                         pb.setVisibility(View.INVISIBLE);
                                                         // Show a toast with a message
                                                         String toastText = getString(R.string.discover_toast, devices.size());
-                                                        Toast.makeText(getContext(), toastText, Toast.LENGTH_LONG).show();
+                                                        Toast.makeText(requireContext(), toastText, Toast.LENGTH_LONG).show();
                                                         // Action executed after a click on an item of the list view
                                                         lv.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                                                             @Override
@@ -177,12 +177,12 @@ public class DiscoverFragment extends Fragment {
                                                                 //Log.d(MainActivity.TAG, "Selected ip: " + selectedIp);
 
                                                                 // Edit the settings preference for the ip address
-                                                                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(getContext());
+                                                                SharedPreferences sharedPreferences = PreferenceManager.getDefaultSharedPreferences(requireContext());
                                                                 SharedPreferences.Editor editor = sharedPreferences.edit();
                                                                 editor.putString("ip", selectedIp).apply();
 
                                                                 // Go back to the main activity
-                                                                Intent intent = new Intent(getContext(), MainActivity.class);
+                                                                Intent intent = new Intent(requireContext(), MainActivity.class);
                                                                 startActivity(intent);
                                                             }
                                                         });

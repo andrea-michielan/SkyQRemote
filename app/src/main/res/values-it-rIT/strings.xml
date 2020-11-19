@@ -21,13 +21,12 @@
     <string name="discover_toast">Trovati %1$d dispositivi!</string>
     <string name="second_fragment_label">Secondo Fragment</string>
     <string name="hello_second_fragment">Ciao secondo fragment</string>
-    <string name="title_activity_settings">Activity Settings</string>
     <string name="help_toast">Bisogno di aiuto?</string>
     <string name="help_toast_action">Vai alla pagina di aiuto</string>
     <string name="sky_q_legacy">Sky Q Legacy</string>
     <string name="sky_q_legacy_summary">Abilita questa opzione se l\'app non dovesse funzionare con il tuo Sky Q (questo perché la versione del firmware potrebbe essere minore di 060)</string>
     <string name="settings_title">Impostazioni</string>
-    <string name="help_text_content5">Se hai seguito tutte le istruzioni e l\'app ancora non funziona, puoi provare ad abilitare l\'opzione <a href="mailto:michielan8@gmail.com">michielan8@gmail.com</a> nelle impostazioni e ritentare il processo di ricerca. Se così facendo l\'app continua a non funzionare, puoi contattarmi all\'indirizzo <b>Sky Q Legacy</b></string>
+    <string name="help_text_content5">Se hai seguito tutte le istruzioni e l\'app ancora non funziona, puoi provare ad abilitare l\'opzione <b>Sky Q Legacy</b> nelle impostazioni e ritentare il processo di ricerca. Se così facendo l\'app continua a non funzionare, puoi contattarmi all\'indirizzo <a href="mailto:michielan8@gmail.com">michielan8@gmail.com</a></string>
     <string name="sky_q_remote_image">Immagine del telecomando Sky Q</string>
     <string name="first_time_dialog_positive">Impostazioni</string>
     <string name="first_time_dialog_negative">Annulla</string>
@@ -35,4 +34,12 @@
     <string name="first_time_dialog_message">Ciao, sembra che questa sia la prima volta che avvii l\'app, oppure non l\'hai ancora configurata correttamente. Per far ciò basta andare nelle impostazioni ed inserire l\'indirizzo IP del tuo Sky Q, manualmente o automaticamente avviando la ricerca. Per andare nelle <b>Impostazioni</b> puoi cliccare nel bottone sottostante.</string>
     <string name="wrong_configuration_title">Configurazione errata</string>
     <string name="wrong_configuration_message">L\'app non è stata in grado di comunicare con lo Sky Q; sembra che la configurazione sia errata. Assicurati che l\'indirizzo IP inserito sia corretto, che il tuo smartphone e il tuo Sky Q siano connessi alla stessa rete e che tu abbia attivato/disattivato l\'opzione Sky Q Legacy in base alla versione firmware del tuo Sky Q. Per andare nelle <b>Impostazioni</b> puoi cliccare nel bottone sottostante.</string>
+    <string name="timeout">Timeout</string>
+    <string name="timeout_summary">Modifica la durata di default del timeout per la connessione in millisecondi (1000ms = 1s)</string>
+    <string name="action_info">Informazioni</string>
+    <string name="about_text1">Questa app è gratuita e completamente open source, sviluppata da Andrea Michielan, il suo codice è liberamente disponibile su Github all\'indirizzo <a href="https://github.com/andrea-michielan/SkyQRemote">https://github.com/andrea-michielan/SkyQRemote</a> con <a href="https://github.com/andrea-michielan/SkyQRemote/blob/master/LICENSE">Licenza MIT</a>.</string>
+    <string name="about_text2"><b>Sky Group Limited</b> non è in alcun modo associata nè con l\'app, nè con il suo sviluppatore.</string>
+    <string name="about_text3">Puoi contattarmi all\'indirizzo <a href="mailto:michielan8@gmail.com">michielan8@gmail.com</a> per qualsiasi domanda.</string>
+    <string name="about_text4">Versione %1$s</string>
+    <string name="info_title">Informazioni</string>
 </resources>
